@@ -1,7 +1,24 @@
 version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2021.04
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies and build project
+          command: "echo Hello, World"
+      - sonarcloud/scan
+
 orbs:
-    hello: circleci/hello-build@0.0.5
+  sonarcloud: sonarsource/sonarcloud@1.0.3
+
 workflows:
-    "Hello Workflow":
-        jobs:
-          - run
+  main:
+    jobs:
+      - build:
+          context: SonarCloud
