@@ -24,7 +24,7 @@
 .createAccountHeader{
   align-items: center;
   justify-self: center;
-  display: flex;
+  display: grid;
   font-size: xx-large;
   font-weight: bolder;
   margin-bottom: 30px;
@@ -134,7 +134,6 @@
   height: 4vh;
   width: 70px;
   padding-right: 10;
-  padding: 5px;
   text-align: center;
   text-size-adjust:inherit;
   background-color: black;
@@ -153,7 +152,41 @@
 }
 
 #good{
-  font-family: 'Itim';
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: 30px;
   color:darkgreen
+}
+
+
+
+
+.loginHeader{
+  /*Set all margin to 0 to avoid vertical scroll*/
+  margin: 0;
+  /*Display in block level*/
+  display: grid;
+  /*Center the content in body*/
+  justify-items: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+.login-form-submit {
+ 
+  width: 93%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-form-submit:hover{
+  background-color: darkgray;
+  color: white;
 }
