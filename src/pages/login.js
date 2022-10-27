@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 import "./App.css"
 
 function Login() {
-  const [passwordType, setPasswordType] = useState("password");
+  const [passwordType] = useState("password");
     const [passwordInput, setPasswordInput] = useState("");
     const handlePasswordChange =(evnt)=>{
         setPasswordInput(evnt.target.value);
