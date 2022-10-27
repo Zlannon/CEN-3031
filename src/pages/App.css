@@ -1,0 +1,159 @@
+
+
+.createAccount{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7FB75C;
+  height: 93vh;
+  width:100vw;
+  background-size: cover;
+  margin:0;
+  padding:0;
+}
+
+.createAccountBox{
+  border-radius: 20px;
+  margin-top: 7rem;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  padding-left: 25px;
+}
+
+.createAccountHeader{
+  align-items: center;
+  justify-self: center;
+  display: flex;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+.input{
+  padding: 20px;
+}
+
+.username{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+.email{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+.password{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+.confirmPassword{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+
+#selectType{
+  width: 92%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+  color: gray;
+}
+
+.submit{
+  width: 92%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  font-weight: bold;
+  background-color: lightgrey;
+}
+
+.submit:hover{
+  background-color: darkgray;
+  color: black;
+}
+
+
+
+
+
+.navigation{
+  width: 100%;
+  height: 55px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 1px;
+  background-color: whitesmokes;
+  
+}
+
+.navBox{
+  display: flex;
+}
+
+.logo{
+  height: 55px;
+  width:70px;
+  mix-blend-mode: multiply;
+}
+
+
+
+
+
+
+
+#signupText{
+  position:absolute;
+  top: 10px;
+  right: 40px;
+  display: flex;
+  height: 4vh;
+  width: 70px;
+  padding-right: 10;
+  padding: 5px;
+  text-align: center;
+  text-size-adjust:inherit;
+  background-color: black;
+  color: whitesmoke;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#appName{
+  position: absolute;
+  padding-left: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  top: 1px;
+}
+
+#good{
+  font-family: 'Itim';
+  font-size: 30px;
+  color:darkgreen
+}
