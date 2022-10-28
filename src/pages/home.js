@@ -1,9 +1,14 @@
 
+import { Typewriter } from 'react-simple-typewriter'
 
 
 function Home() {
     return(
-      <div className="home">Add home page here maybe</div>
+      <div className="home"> 
+        <div className="homeBox">
+          <Typewriter />
+        </div>
+      </div>
   );
     
 }
