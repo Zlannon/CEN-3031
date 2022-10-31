@@ -1,0 +1,268 @@
+
+
+.createAccount{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7FB75C;
+  height: 93vh;
+  width:100vw;
+  background-size: cover;
+  margin:0;
+}
+
+.createAccountBox{
+  border-radius: 20px;
+  margin-top: 7rem;
+  width: 450px;
+  height: 600px;
+  background-color: white;
+  padding-left: 25px;
+}
+
+.createAccountHeader h3{
+  padding-left: 100px;
+  align-items: center;
+  justify-self: center;
+  display: grid;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+.input{
+  padding: 20px;
+}
+
+.username{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+.email{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+.password{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+.confirmPassword{
+  width: 90%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+
+}
+
+#selectType{
+  width: 92%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+  color: gray;
+}
+
+.submit{
+  width: 92%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  font-weight: bold;
+  background-color: lightgrey;
+}
+
+.submit:hover{
+  background-color: darkgray;
+  color: black;
+}
+
+
+
+.navigation{
+  width: 100%;
+  height: 55px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 1px;
+  background-color: whitesmokes;
+  
+}
+
+.navBox{
+  display: flex;
+}
+
+.logo{
+  height: 55px;
+  width:70px;
+  mix-blend-mode: multiply;
+}
+
+
+
+.signupText{
+  position:relative;
+  height: 45px;
+  width:80px;
+  padding: 0px;
+  left: 1400px;
+  top: 5px;
+  background-color: black;
+  color: whitesmoke;
+  font-family:'Times New Roman', Times, serif;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.signinText{
+  position:relative;
+  height: 45px;
+  width:80px;
+  padding: 0px;
+  left: 1220px;
+  top: 5px;
+  background-color: black;
+  color: whitesmoke;
+  font-family:'Times New Roman', Times, serif;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.signupText:hover{
+  background-color:#3a3a3a;
+}
+
+.signinText:hover{
+  background-color:#3a3a3a;
+}
+
+#appName{
+  position: absolute;
+  padding-left: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  top: 1px;
+}
+
+#good{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  color:darkgreen
+}
+
+
+.loginHeader{
+  /*Set all margin to 0 to avoid vertical scroll*/
+  margin: 0;
+  /*Display in block level*/
+  display: grid;
+  /*Center the content in body*/
+  justify-items: center;
+  align-items: center;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+.login-form-submit {
+ 
+  width: 93%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-form-submit:hover{
+  background-color: darkgray;
+  color: white;
+}
+
+
+.homeBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7FB75C;
+  width:100vw;
+  height: 47vh;
+  background-size: cover;
+  margin-top:47vh;
+  overflow: clip;
+  padding:0;
+}
+
+.image{
+  position: absolute;
+  width: 100vw;
+  height:45vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 8px;
+  top: 70px;
+
+}
+
+
+.homeType{
+  padding-left: 300px;
+  text-align: center;
+
+}
+
+/*.circle {
+  position: relative;
+  top:-250px;
+  left: 370px;
+  background-color:#7FB75C;
+  border:9px solid white;    
+  height:50px;
+  border-radius:50px;
+  -moz-border-radius:50px;
+  -webkit-border-radius:50px;
+  width:50px;
+}*/
+
+.homeBottomBox{
+  position: relative;
+  border-radius: 20px;
+  margin-top: 00px;
+  width: 1050px;
+  height: 350px;
+  background-color: rgba(40, 137, 86, 0.635);
+  padding-left: 25px;
+  overflow: hidden;
+} 
+
+.descp{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  color: whitesmoke;
+  padding-left:30px;
+}
