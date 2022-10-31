@@ -15,7 +15,7 @@ function CreateAccount() {
       <div className='createAccountBox'>
        
         <div className='createAccountHeader'>
-          User Create Account
+          <h3>Create Account</h3>
        
      </div>
         <div className='inputs'>

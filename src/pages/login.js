@@ -15,7 +15,7 @@ function Login() {
       <div className='createAccountBox'>
        
         <div className='loginHeader'>
-          Login
+          <h3>Login</h3>
        
      </div>
      <select name="userType" id="selectType"  >

@@ -8,9 +8,11 @@ const Navbar= () =>{
   return (
   <div className='navigation'>
     <div className='navBox'>
-      <img src={logo} className="logo"></img>
+      <img src={logo} className="logo" alt="CharityLogo"></img>
     <Link style={{textDecoration:'none'}} to="/" ><h1 id="appName">Give <span id="good"> Good</span> </h1></Link>
-     <Link style={{textDecoration:'none'}} to="/createAccount" id="signup"><button id="signupText">Sign up</button></Link>
+     <Link style={{textDecoration:'none'}} to="/createAccount" id="signup"><button class="signupText">Sign Up</button></Link>
+     <Link style={{textDecoration:'none'}} to="/login" id="signup"><button class="signinText">Sign In</button></Link>
+
 
     
 
