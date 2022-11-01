@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import {Link} from "react-router-dom"
-import "./App.css"
+import "./createAccount.css"
 
 function CreateAccount() {
   const [passwordType] = useState("password");

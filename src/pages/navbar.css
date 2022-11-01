@@ -1,0 +1,49 @@
+.navigation{
+    display: flex;
+    width: 100%;
+    margin-bottom: 1px;
+  }
+  
+  .logo{
+    display: flex;
+  }
+  .logo img{
+    height: 55px;
+    width:70px;
+    mix-blend-mode: multiply;
+  }
+  .logo a{
+    padding-left: 20px;
+    top: 1px;
+    white-space: nowrap;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .logo a #give{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+  }
+  .logo a #good{
+    font-family: 'Itim';
+    color:darkgreen
+  }
+  
+  
+  .buttons{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .buttons a{
+    font-family: 'Courier New', Courier, monospace;
+    color: whitesmoke;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+  
+    background-color: black;
+    height: fit-content;
+    width: 70px;
+    margin: 5px;
+    border-radius: 5px;
+  }

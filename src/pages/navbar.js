@@ -1,24 +1,21 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
-import "./App.css"
+import "./navbar.css"
 import "@fontsource/itim" 
 
 const logo = require('../images/logo.png')
 const Navbar= () =>{
   return (
-  <div className='navigation'>
-    <div className='navBox'>
-      <img src={logo} className="logo" alt="CharityLogo"></img>
-    <Link style={{textDecoration:'none'}} to="/" ><h1 id="appName">Give <span id="good"> Good</span> </h1></Link>
-     <Link style={{textDecoration:'none'}} to="/createAccount" id="signup"><button class="signupText">Sign Up</button></Link>
-     <Link style={{textDecoration:'none'}} to="/login" id="signup"><button class="signinText">Sign In</button></Link>
-
-
-    
-
+    <div className="navigation">
+        <span className="logo">
+          <img src={logo} alt=""/>
+          <Link to="/"><span id="give">Give</span> <span id="good">Good</span></Link>
+        </span>
+        <span className="buttons">
+          <Link to="/login">Login</Link>
+          <Link to="/createAccount">Sign up</Link>
+        </span>
     </div>
-    
-  </div>
   );
 }
 export default Navbar;

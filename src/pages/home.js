@@ -1,5 +1,7 @@
 
 import TypeWriterEffect from 'react-typewriter-effect';
+import "./home.css"
+
 
 const image = require("../images/Food.png")
 
