@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
-import "./navbar.css"
 import "@fontsource/itim" 
+import "./navbar.css"
 
 const logo = require('../images/logo.png')
 const Navbar= () =>{
