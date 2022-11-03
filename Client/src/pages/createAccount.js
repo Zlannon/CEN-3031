@@ -19,6 +19,7 @@ function CreateAccount() {
                 user: user,
                 email: email,
                 pass: passwordInput,
+                type: document.getElementById("selectType").value,
             }
         }).then(() => {
             alert("inserted")
