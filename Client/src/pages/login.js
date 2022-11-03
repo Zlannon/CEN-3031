@@ -16,6 +16,7 @@ function Login() {
         Axios.get("http://localhost:3001/pass", {
             params: {
                 user: user,
+                type: document.getElementById("selectType").value,
             },
         }).then((response) => {
             if (document.getElementById("selectType").value === "Customer") {
