@@ -14,16 +14,32 @@ function CreateAccount() {
     }
 
     const addUser = () => {
-        Axios.get("http://localhost:3001/insert", {
+
+        Axios.get("http://localhost:3001/check", {
             params: {
                 user: user,
                 email: email,
-                pass: passwordInput,
                 type: document.getElementById("selectType").value,
             }
-        }).then(() => {
-            alert("inserted")
-        });
+        }).then((response) => {
+            if (response.data[0] && response.data[0].user) {
+                alert("username already exists")
+            } else if (response.data[0] && response.data[0].email) {
+                alert("email already used")
+            } else {
+                Axios.get("http://localhost:3001/insert", {
+                    params: {
+                        user: user,
+                        email: email,
+                        pass: passwordInput,
+                        type: document.getElementById("selectType").value,
+                    }
+                }).then(() => {
+                    alert("inserted")
+                });
+            }
+        })
+        
     }
 
     return(

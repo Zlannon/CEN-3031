@@ -15,6 +15,17 @@ const db = mysql.createConnection({
 });
 
 
+app.get("/create", (req, res) => {
+    db.query("CREATE TABLE food (address varchar(255), name varchar(255), category varchar(255), allergen varchar(255));", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+
 app.get("/insert", (req, res) => {
     const user = req.query.user;
     const email = req.query.email;
@@ -60,6 +71,42 @@ app.get("/pass", (req, res) => {
         });
     }
 });
+
+app.get("/check", (req, res) => {
+    const user = req.query.user;
+    const email = req.query.email;
+    const type = req.query.type;
+    if (type === "Restaurant") {
+        db.query("SELECT username, email FROM Rlogin WHERE username=" + mysql.escape(String(user)) + " OR email=" + mysql.escape(String(email)), (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
+    } else if (type === "Customer") {
+        db.query("SELECT username, email FROM Clogin WHERE username=" + mysql.escape(String(user)) + " OR email=" + mysql.escape(String(email)), (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
+    }
+});
+
+app.get("/list", (req, res) => {
+    const alrg = req.query.alrg;
+    const cat = req.query.cat;
+    db.query("SELECT pass FROM Rlogin WHERE allergen=" + mysql.escape(String(alrg)) + " AND category=" + mysql.escape(String(cat)), (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 
 app.listen(3001, () => {
     console.log("server running");
