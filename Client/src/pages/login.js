@@ -1,16 +1,24 @@
 
-import { useState } from "react";
+import { useState , React} from "react";
 import { Link } from "react-router-dom"
 import Axios from "axios"
 import "./login.css"
+
 function Login() {
     const [user, setUser] = useState("");
     const [passwordType] = useState("password");
     const [passwordInput, setPasswordInput] = useState("");
+   //console.log("Customer auth", localStorage.getItem("isCustomerAuthenticated"));
+  // console.log("Restaurant auth", localStorage.getItem("isRestaurantAuthenticated"));
+
+  
     const handlePasswordChange =(evnt)=>{
         setPasswordInput(evnt.target.value);
     }
 
+
+
+       
     const checkPass = () => {
         Axios.get("http://localhost:3001/pass", {
             params: {
@@ -21,12 +29,19 @@ function Login() {
             if (document.getElementById("selectType").value === "Customer") {
                 if (response.data[0] && passwordInput === response.data[0].pass) {
                     alert("Customer Authenticated");
+                    localStorage.setItem("isCustomerAuthenticated", "true");
+                    window.location.reload(false);
+                    window.location.pathname ='/foodList'
+
                 } else {
                     alert("failed");
                 }
             } else {
                 if (response.data[0] && passwordInput === response.data[0].pass) {
                     alert("Restaurant Authenticated");
+                    localStorage.setItem("isRestaurantAuthenticated", "true");
+                    window.location.reload(false);
+                    window.location.pathname ='/addFood'
                 } else {
                     alert("failed");
                 }
@@ -50,7 +65,9 @@ function Login() {
           <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} id="password" name="password" class="password" placeholder="Enter Password" />         
         </div>
         <div className='userType'>
-                    <button className='login-form-submit' onClick={checkPass}>Login</button>
+                    <button className='login-form-submit' onClick={() => {
+          checkPass();
+        }}>Login</button>
         </div>
         <p>Don't have an account? <Link to="/createAccount">Sign up</Link></p>
       </div>
