@@ -15,9 +15,6 @@ function Login() {
     const handlePasswordChange =(evnt)=>{
         setPasswordInput(evnt.target.value);
     }
-
-
-
        
     const checkPass = () => {
         Axios.get("http://localhost:3001/pass", {
@@ -50,7 +47,7 @@ function Login() {
     }
 
     return (
-        <div className="createAccount">
+  <div className="createAccount">
       <div className='createAccountBox'>
         <div className='loginHeader'>
                     <h3>Login</h3>
@@ -61,8 +58,8 @@ function Login() {
           <option value="Restaurant">Restaurant</option>
           </select>
         <div className='inputs'>
-                    <input className='username' onChange={(event) => { setUser(event.target.value);}} id="username" placeholder='Enter Username'/>
-          <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} id="password" name="password" class="password" placeholder="Enter Password" />         
+                    <input className='username' type= "text" onChange={(event) => { setUser(event.target.value);}} id="username" placeholder='Enter Username'/>
+          <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} id="password" name="password" className="password" placeholder="Enter Password" />         
         </div>
         <div className='userType'>
                     <button className='login-form-submit' onClick={() => {
@@ -75,6 +72,7 @@ function Login() {
     
     </div>
     </div>
+      
   );
     
 }

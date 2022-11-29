@@ -5,6 +5,17 @@ import "./createAccount.css"
 import Axios from "axios"
 import "./App.css"
 
+
+export function isValidEmail(email) {
+  return /\S+@\S+\.\S+/.test(email);
+}
+
+export function getValidUsername(username){
+  const result = username.replace(/[^a-zA-Z0-9]/gi, '');
+  return result;
+};
+
+
 function CreateAccount() {
     const [user, setUser] = useState("");
     const [email, setEmail] = useState("");
@@ -51,9 +62,7 @@ function CreateAccount() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
 
-  function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
+  
 
   const handleChange = event => {
     if (!isValidEmail(event.target.value)) {
@@ -128,9 +137,11 @@ function CreateAccount() {
     });
   }
 
+
+
   const passwordOnChange = (event) =>{
-    setUser(event.target.value); 
-    OnInputChange(event)
+    setUser(getValidUsername(event.target.value)); 
+    OnInputChange(event);
   };
 
   //------------------------------
@@ -152,7 +163,7 @@ function CreateAccount() {
              className='username' 
              name = 'username' 
              placeholder='Create Username'  
-             value={input.username} 
+             value={user} 
              onChange={event=>passwordOnChange(event)}
              onBlur={validateInput}
           />
@@ -172,7 +183,7 @@ function CreateAccount() {
             onChange={handlePasswordChange} 
             value={passwordInput} 
             name="password" 
-            class="password" 
+            className="password" 
             placeholder="Password" 
           />         
 
@@ -182,7 +193,7 @@ function CreateAccount() {
           value={input.confirmPassword} 
           onChange={OnInputChange} 
           onBlur={validateInput} 
-          class="confirmPassword" 
+          className="confirmPassword" 
           placeholder="Confirm Password"
         />         
         

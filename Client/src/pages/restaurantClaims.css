@@ -1,0 +1,29 @@
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    font-size: 14px;
+  }
+  
+  .ReactTable .rt-thead {
+    overflow-y: scroll;
+  }
+
+  .claimFood{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7FB75C;
+    height: 93vh;
+    width:100vw;
+    background-size: cover;
+    margin:0;
+  }
+  
+  .claimFoodBox{
+    border-radius: 20px;
+    margin-top:4 rem;
+    width: 950px;
+    height: 650px;
+    background-color: white;
+    padding-left: 25px;
+  }
