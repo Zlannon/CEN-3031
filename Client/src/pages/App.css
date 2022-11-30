@@ -147,6 +147,19 @@
   border-radius: 5px;
   font-weight: bold;
 }
+.claimfoodText{
+  position:relative;
+  height: 45px;
+  width:80px;
+  padding: 0px;
+  left: 1000px;
+  top: 5px;
+  background-color: black;
+  color: whitesmoke;
+  font-family:'Times New Roman', Times, serif;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
 .signupText:hover{
   background-color:#3a3a3a;
