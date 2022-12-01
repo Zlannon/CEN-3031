@@ -108,6 +108,14 @@ app.get("/list", (req, res) => {
 });
 
 
+
+
+
+
+
+
+
+//for testing purposes
 app.get("/userlist", (req, res) => {
     
     db.query("SELECT * FROM Clogin", (err, result) => {
@@ -119,7 +127,29 @@ app.get("/userlist", (req, res) => {
     });
 });
 
+//for getting email if needed
 
+app.get("/getEmail", (req, res) => {
+    const user = req.query.user;
+    const type = req.query.type;
+    if (type === "Restaurant") {
+        db.query("SELECT email FROM Rlogin WHERE username=" + mysql.escape(String(user)), (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
+    } else if (type === "Customer") {
+        db.query("SELECT email FROM Clogin WHERE username=" + mysql.escape(String(user)), (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        });
+    }
+});
 app.listen(3001, () => {
     console.log("server running");
 });

@@ -1,4 +1,4 @@
-.loginHeader{
+.loginHeader h3{
     /*Set all margin to 0 to avoid vertical scroll*/
     margin: 0;
     /*Display in block level*/
@@ -9,6 +9,8 @@
     font-size: xx-large;
     font-weight: bolder;
     margin-bottom: 30px;
+    padding-top: 20px;
+    padding-right: 15px;
   }
   
   .login-form-submit {

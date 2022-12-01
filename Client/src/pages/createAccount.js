@@ -167,7 +167,7 @@ function CreateAccount() {
              onChange={event=>passwordOnChange(event)}
              onBlur={validateInput}
           />
-
+          <br></br>
           {error && <text style={{color: 'red'}}>{error}</text>}  
           <input 
             className='email' 

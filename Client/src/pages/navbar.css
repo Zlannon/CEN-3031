@@ -18,7 +18,7 @@
     white-space: nowrap;
     font-size: 2em;
     font-weight: bold;
-    padding-right: 500px;
+    padding-right: 900px;
   }
   .logo a #give{
     font-family: 'Courier New', Courier, monospace;
@@ -83,4 +83,37 @@
     width: 100px;
     margin: 5px;
     border-radius: 5px;
+  }
+
+
+  .dropdown{
+    padding-top: 5px;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    z-index: 1;
+    border-color: black;
+    border-radius: 7px;
+    border-width: 5px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
   }

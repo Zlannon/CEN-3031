@@ -15,7 +15,30 @@ function Login() {
     const handlePasswordChange =(evnt)=>{
         setPasswordInput(evnt.target.value);
     }
-       
+
+
+    /*const CusEmail = async(authType, user) => {
+        console.log(user);
+        console.log(authType)
+                Axios.get("http://localhost:3001/getEmail", {
+                    params: {
+                        user: user,
+                        type: authType,
+                    },
+                }).then((response) => {
+                // console.log(JSON.stringify(response))
+                alert(response.data[0].email)
+                    localStorage.setItem("email", response.data[0].email)
+                
+                
+                });
+                
+                    
+                
+              
+        }*/
+
+    
     const checkPass = () => {
         Axios.get("http://localhost:3001/pass", {
             params: {
@@ -26,9 +49,12 @@ function Login() {
             if (document.getElementById("selectType").value === "Customer") {
                 if (response.data[0] && passwordInput === response.data[0].pass) {
                     alert("Customer Authenticated");
+                    localStorage.setItem("username", user);
+                   // CusEmail("Customer", user);
                     localStorage.setItem("isCustomerAuthenticated", "true");
                     window.location.reload(false);
                     window.location.pathname ='/foodList'
+
 
                 } else {
                     alert("failed");
@@ -36,9 +62,13 @@ function Login() {
             } else {
                 if (response.data[0] && passwordInput === response.data[0].pass) {
                     alert("Restaurant Authenticated");
+                    localStorage.setItem("username", user);
+                   // CusEmail("Restaurant");
                     localStorage.setItem("isRestaurantAuthenticated", "true");
                     window.location.reload(false);
                     window.location.pathname ='/addFood'
+                    
+
                 } else {
                     alert("failed");
                 }
