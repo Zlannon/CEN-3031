@@ -1,24 +1,119 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
-import "./App.css"
 import "@fontsource/itim" 
+import "./navbar.css"
 
 const logo = require('../images/logo.png')
+
 const Navbar= () =>{
-  return (
-  <div className='navigation'>
-    <div className='navBox'>
-      <img src={logo} className="logo" alt="CharityLogo"></img>
-    <Link style={{textDecoration:'none'}} to="/" ><h1 id="appName">Give <span id="good"> Good</span> </h1></Link>
-     <Link style={{textDecoration:'none'}} to="/createAccount" id="signup"><button class="signupText">Sign Up</button></Link>
-     <Link style={{textDecoration:'none'}} to="/login" id="signup"><button class="signinText">Sign In</button></Link>
+  var isAuthenticatedRestaurant = localStorage.getItem("isRestaurantAuthenticated");
+  var isAuthenticatedCustomer = localStorage.getItem("isCustomerAuthenticated");
+
+ // console.log("this", isAuthenticatedCustomer);
+ // console.log("this", isAuthenticatedRestaurant);
 
 
+  function signout(){
+    localStorage.clear();
+    window.location.pathname ='/login'
+
+  }
+ 
+
+
+  function account(){
     
+    if(isAuthenticatedCustomer){
 
+        return(
+          <div className="dropdown">
+              <Link to={{}}>Account
+      
+                <div className="dropdown-content">
+
+                  <h5>Username: {localStorage.getItem("username")}</h5>
+                </div>
+            </Link>
     </div>
-    
+      )
+  }
+
+  if(isAuthenticatedRestaurant){
+
+    return(
+      <div className="dropdown">
+         <Link to={{}}>Account
+
+    <div className="dropdown-content">
+    <h5>Username: {localStorage.getItem("username")}</h5>
+
+     
+    </div>
+    </Link>
   </div>
+    )
+}
+    
+  
+    
+  }
+
+  function NavigationBar(){
+
+
+     if(isAuthenticatedCustomer){
+     
+
+      return <>
+        <span className="buttons">
+          <Link to="/">Home</Link>
+          <Link to="/foodList">Food List</Link>
+          <Link to="/userClaims">Claims</Link>
+          {account()}
+
+          <Link  onClick={() => {
+          signout();
+        }}>Signout</Link>
+      </span>
+    </>
+    }else if(isAuthenticatedRestaurant){
+      
+      return  <>
+      <span className="buttons">
+        <Link to="/">Home</Link>
+        <Link to="/addFood">Add Food</Link>
+        <Link to="/restaurantClaims">Claims</Link>
+        {account()}
+
+
+
+         <Link  onClick={() => {
+          signout();
+        }}>Signout</Link>
+
+      </span>
+    </>
+    }else{
+      return   <>
+        <span className="homeButtons">
+            <Link to="/login">Login</Link>
+            <Link to="/createAccount">Sign up</Link>
+        </span>
+     </>
+    }
+
+  }
+ 
+  return (
+    <div className="navigation">
+        <span className="logo">
+          <img src={logo} alt=""/>
+          <Link to="/"><span id="give">Give</span> <span id="good">Good</span></Link>
+        </span>
+       
+        <NavigationBar/>
+       
+    </div>
   );
 }
 export default Navbar;

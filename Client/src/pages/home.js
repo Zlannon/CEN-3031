@@ -1,5 +1,7 @@
 
 import TypeWriterEffect from 'react-typewriter-effect';
+import "./home.css"
+
 
 const image = require("../images/Food.png")
 
@@ -9,7 +11,7 @@ function Home() {
       <div className="home"> 
           <img src={image} className="image" alt="img"></img>
         <div className="homeBox">
-              <div class="circle"></div>
+              <div className="circle"></div>
               <div className='homeBottomBox'>
                   <h1 className='homeType'>
 

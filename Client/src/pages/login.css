@@ -1,0 +1,32 @@
+.loginHeader h3{
+    /*Set all margin to 0 to avoid vertical scroll*/
+    margin: 0;
+    /*Display in block level*/
+    display: grid;
+    /*Center the content in body*/
+    justify-items: center;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-right: 15px;
+  }
+  
+  .login-form-submit {
+   
+    width: 93%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .login-form-submit:hover{
+    background-color: darkgray;
+    color: white;
+  }

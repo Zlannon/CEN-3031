@@ -16,7 +16,7 @@ const db = mysql.createConnection({
 
 
 app.get("/create", (req, res) => {
-    db.query("CREATE TABLE food (address varchar(255), name varchar(255), category varchar(255), allergen varchar(255));", (err, result) => {
+    db.query("CREATE TABLE food (id varchar(255), address varchar(255), name varchar(255), category varchar(255), allergen varchar(255), restaurant varchar(255), creator varchar(255))", (err, result) => {
         if (err) {
             console.log(err);
         } else {
@@ -25,6 +25,114 @@ app.get("/create", (req, res) => {
     });
 });
 
+app.get("/create2", (req, res) => {
+    db.query("CREATE TABLE claimR (username varchar(255), name varchar(255), time varchar(255), restaurant varchar(255))", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get("/create3", (req, res) => {
+    db.query("CREATE TABLE claimU (address varchar(255), name varchar(255), time varchar(255), restaurant varchar(255), username varchar(255))", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get("/delete", (req, res) => {
+    db.query("DROP TABLE claimU", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+})
+
+app.get("/delete2", (req, res) => {
+    db.query("DROP TABLE claimR", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+})
+
+app.get("/delete3", (req, res) => {
+    db.query("DROP TABLE food", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+})
+
+app.get("/insert2", (req, res) => {
+    const id = req.query.id;
+    const name = req.query.name;
+    const restaurant = req.query.restaurant;
+    const address = req.query.address;
+    const allergen = req.query.allergen;
+    const category = req.query.category;
+    const creator = req.query.creator;
+    db.query("INSERT INTO food (id, address, name, category, allergen, restaurant, creator) VALUES (?,?,?,?,?,?,?)", [id, address, name, category, allergen, restaurant, creator], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get("/count", (req, res) => {
+    db.query("SELECT COUNT(id) AS count FROM food", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get("/search", (req, res) => {
+    db.query("SELECT * FROM food", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get("/search2", (req, res) => {
+    const restaurant = req.query.restaurant;
+    db.query("SELECT username, name FROM claimR WHERE restaurant=" + mysql.escape(String(restaurant)), (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get("/search3", (req, res) => {
+    const user = req.query.user;
+    db.query("SELECT * FROM claimU WHERE username=" + mysql.escape(String(user)), (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
 
 app.get("/insert", (req, res) => {
     const user = req.query.user;
