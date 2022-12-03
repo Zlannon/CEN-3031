@@ -68,7 +68,10 @@ const Navbar= () =>{
         <span className="buttons">
           <Link to="/">Home</Link>
           <Link to="/foodList">Food List</Link>
-          <Link to="/userClaims">Claims</Link>
+          <Link to="/claimFood">Claim Food</Link>
+          <Link to="/userClaims">Your Claims</Link>
+   
+
           {account()}
 
           <Link  onClick={() => {

@@ -1,5 +1,8 @@
 import React from 'react';
 import "./App.css"
+
+import "./App2.css"
+
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import CreateAccount from './createAccount'
 import Login from './login'
@@ -11,6 +14,15 @@ import UserClaims from './userClaims'
 import RestaurantClaims from './restaurantClaims'
 
 
+
+
+import CF from './claimFood'
+
+
+const DATA = [
+
+ 
+];
 function App() {
   
 
@@ -23,7 +35,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/createAccount" element={<CreateAccount/>}/>
-
+          
+          <Route path="/claimFood" element={<CF tasks={DATA}/>}/>
+          
           <Route path="/login" element={<Login/>}/>
           <Route path="/addFood" element={<AddFood/>}/>
           <Route path="/foodList" element={<FoodList/>}/>
