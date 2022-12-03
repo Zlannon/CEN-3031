@@ -12,7 +12,6 @@ function RestaurantClaims() {
 
     
 
-    var data = "";
       function GetData(){
         useEffect(() => {
             (async () => {
