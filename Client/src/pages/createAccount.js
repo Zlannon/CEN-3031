@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom"
 import "./createAccount.css"
 import Axios from "axios"
-import "./App.css"
-
 
 export function isValidEmail(email) {
   return /\S+@\S+\.\S+/.test(email);

@@ -1,5 +1,4 @@
 import React from 'react';
-import "./App.css"
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import CreateAccount from './createAccount'
 import Login from './login'

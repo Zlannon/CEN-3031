@@ -7,7 +7,7 @@ function FoodList() {
 
     const [database, setDatabase] = useState([]);
 
-    var data = "";
+    const data = "";
     function GetData() {
         useEffect(() => {
             (async () => {
@@ -59,6 +59,7 @@ function FoodList() {
                                     },
                                     {
                                         Header: "Address",
+                                        accessor: "address",
                                         style: {
                                             textAlign: "center",
                                             fontSize: "30px",
@@ -69,15 +70,6 @@ function FoodList() {
                                             //backgroundColor: '#5CB766'
 
                                         },
-                                        accessor: "address",
-                                        style: {
-                                            textAlign: "center",
-                                            fontSize: "15px",
-                                            color: 'black',
-                                            transition: 'all .2s ease-out',
-                                            //backgroundColor: '#5CB766'
-
-                                        }
                                     },
                                     {
                                         Header: "Food",

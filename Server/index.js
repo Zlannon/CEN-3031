@@ -176,17 +176,6 @@ app.get("/search3", (req, res) => {
     });
 });
 
-app.get("/search5", (req, res) => {
-    const user = req.query.user;
-    db.query("SELECT name, restaurant, address, time, username FROM claimU", (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send(result);
-        }
-    });
-});
-
 app.get("/search4", (req, res) => {
     const id = req.query.id;
     db.query("SELECT * FROM food WHERE id=" + mysql.escape(String(id)), (err, result) => {

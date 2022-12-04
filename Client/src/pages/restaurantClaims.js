@@ -9,7 +9,7 @@ function RestaurantClaims() {
     
     const [database, setDatabase] = useState([]);
 
-    var data = "";
+    const data = "";
       function GetData(){
         useEffect(() => {
             (async () => {
@@ -56,25 +56,17 @@ function RestaurantClaims() {
                                     columns: [
                                         {
                                             Header: "Username",
-                                            style: {
-                                                textAlign: "center",
-                                                fontSize: "30px",
-                                                color: 'black',
-                                                transition: 'all .2s ease-out',
-                                                fontFamily:'lucida'
-
-                                                //backgroundColor: '#5CB766'
-
-                                            },
                                             accessor: "username",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",
                                                 color: 'black',
                                                 transition: 'all .2s ease-out',
+                                                fontFamily:'lucida'
+
                                                 //backgroundColor: '#5CB766'
 
-                                            }
+                                            },              
                                         },
                                         {
                                             Header: "Food",

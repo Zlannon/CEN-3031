@@ -1,5 +1,5 @@
 import { React, useState, useEffect} from "react";
-import "./restaurantClaims.css"
+import "./userClaims.css"
 import axios from "axios";
 import ReactTable from "react-table-6";
 import "react-table-6/react-table.css"
@@ -12,7 +12,7 @@ function RestaurantClaims() {
 
     
 
-    var data = "";
+    const data = "";
       function GetData(){
         useEffect(() => {
             (async () => {
@@ -59,22 +59,13 @@ function RestaurantClaims() {
                                     columns: [
                                         {
                                             Header: "Food",
-                                            style: {
-                                                textAlign: "center",
-                                                fontSize: "30px",
-                                                color: 'black',
-                                                transition: 'all .2s ease-out',
-                                                fontFamily:'lucida'
-
-                                                //backgroundColor: '#5CB766'
-
-                                            },
                                             accessor: "name",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",
                                                 color: 'black',
                                                 transition: 'all .2s ease-out',
+
                                                 //backgroundColor: '#5CB766'
 
                                             }

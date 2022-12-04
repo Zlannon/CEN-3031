@@ -6,12 +6,8 @@ import "./navbar.css"
 const logo = require('../images/logo.png')
 
 const Navbar= () =>{
-  var isAuthenticatedRestaurant = localStorage.getItem("isRestaurantAuthenticated");
-  var isAuthenticatedCustomer = localStorage.getItem("isCustomerAuthenticated");
-
- // console.log("this", isAuthenticatedCustomer);
- // console.log("this", isAuthenticatedRestaurant);
-
+  const isAuthenticatedRestaurant = localStorage.getItem("isRestaurantAuthenticated");
+  const isAuthenticatedCustomer = localStorage.getItem("isCustomerAuthenticated");
 
   function signout(){
     localStorage.clear();
