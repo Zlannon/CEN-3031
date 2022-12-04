@@ -19,7 +19,7 @@ function RestaurantClaims() {
                 try {
                     await axios.get("http://localhost:3001/search3", {
                         params: {
-                            restaurant: localStorage.getItem("username")
+                            username: localStorage.getItem("username")
                         }
                     }).then((response) => {
                         setDatabase(JSON.parse(JSON.stringify((response.data))))
@@ -69,7 +69,7 @@ function RestaurantClaims() {
                                                 //backgroundColor: '#5CB766'
 
                                             },
-                                            accessor: "username",
+                                            accessor: "name",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",
@@ -81,7 +81,7 @@ function RestaurantClaims() {
                                         },
                                         {
                                             Header: "Restaurant",
-                                            accessor: "email",
+                                            accessor: "restaurant",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",
@@ -94,8 +94,22 @@ function RestaurantClaims() {
                                             
                                         },
                                         {
+                                            Header: "Address",
+                                            accessor: "address",
+                                            style: {
+                                                textAlign: "center",
+                                                fontSize: "15px",
+                                                color: 'black',
+                                                transition: 'all .2s ease-out'
+
+                                            }
+
+
+
+                                        },
+                                        {
                                             Header: "Date",
-                                            accessor: "pass",
+                                            accessor: "time",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",

@@ -9,6 +9,7 @@ import AddFood from './addFood';
 import FoodList from './foodList';
 import UserClaims from './userClaims'
 import RestaurantClaims from './restaurantClaims'
+import ClaimFood from './claimFood'
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route path="/foodList" element={<FoodList/>}/>
           <Route path="/userClaims" element={<UserClaims/>}/>
           <Route path="/restaurantClaims" element={<RestaurantClaims/>}/>
+          <Route path="/claimFood" element={<ClaimFood />} />
+
 
 
 

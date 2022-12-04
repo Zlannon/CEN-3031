@@ -138,9 +138,8 @@ function FoodList() {
             </div>
         </div>
     );
-  
-    
+
+
 }
 
 export default FoodList;
-

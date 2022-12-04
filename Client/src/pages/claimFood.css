@@ -1,0 +1,61 @@
+.claimFood {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7FB75C;
+    height: 93vh;
+    width: 100vw;
+    background-size: cover;
+    margin: 0;
+}
+
+.claimFoodBox {
+    border-radius: 20px;
+    margin-top: 0rem;
+    width: 950px;
+    height: 750px;
+    background-color: white;
+    padding-left: 25px;
+}
+
+.claimFoodHeader h3 {
+    padding-left: 375px;
+    align-items: center;
+    justify-self: center;
+    display: grid;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+.input {
+    padding: 20px;
+}
+
+.ID {
+    width: 90%;
+    height: 40px;
+    border-radius: 6px;
+    border-width: 1;
+    margin-bottom: 20px;
+    background-color: #f8efefce;
+}
+
+
+.claimFoodSubmit {
+    margin-top: 10px;
+    width: 91%;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    cursor: pointer;
+    outline: none;
+}
+
+    .claimFoodSubmit:hover {
+        background-color: darkgray;
+        color: white;
+    }

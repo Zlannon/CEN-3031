@@ -8,9 +8,6 @@ import "react-table-6/react-table.css"
 function RestaurantClaims() {
     
     const [database, setDatabase] = useState([]);
-    
-
-    
 
     var data = "";
       function GetData(){
@@ -81,21 +78,18 @@ function RestaurantClaims() {
                                         },
                                         {
                                             Header: "Food",
-                                            accessor: "email",
+                                            accessor: "name",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",
                                                 color: 'black',
                                                 transition: 'all .2s ease-out'
 
-                                            }
-                                    
-
-                                            
+                                            }         
                                         },
                                         {
                                             Header: "Date",
-                                            accessor: "pass",
+                                            accessor: "time",
                                             style: {
                                                 textAlign: "center",
                                                 fontSize: "15px",
