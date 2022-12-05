@@ -33,61 +33,86 @@ function RestaurantClaims() {
     }
 
     return (
-        <main>
-            <div className='claimBox'>
-                {GetData()}
-                <ReactTable
-                    data={database}
-                    columns={[
-                        {
-                            Header: "User Claims",
-                            style: {
-                                textAlign: "center",
-                                fontSize: "30px",
-                                fontWeight: 'semi-bold',
-                                transition: 'all .2s ease-out'
-                            },
-                        columns: [
-                            {
-                                Header: "Username",
-                                accessor: "username",
-                                style: {
-                                    textAlign: "center",
-                                    fontSize: "15px",
-                                    transition: 'all .2s ease-out',
-                                    fontFamily: 'lucida'
-                                },
-                            },
-                            {
-                                Header: "Food",
-                                accessor: "name",
-                                style: {
-                                    textAlign: "center",
-                                    fontSize: "15px",
-                                    transition: 'all .2s ease-out'
-                                }
-                            },
-                            {
-                                Header: "Date",
-                                accessor: "time",
-                                style: {
-                                    textAlign: "center",
-                                    fontSize: "15px",
-                                    transition: 'all .2s ease-out'
-                                }
-                            },
 
-                        ]},
-                    ]}
-                    defaultPageSize={10}
-                    style={{
-                        FontFace: "itim",
-                        height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
-                    }}
-                    className="-striped -highlight" 
-                /><br />
+        <div>
+            <div className="claimFood">
+                <div className='claimFoodBox'>
+                    {GetData()}
+                    <><ReactTable
+                        data={database}
+                        columns={[
+                            {
+                                Header: "User Claims",
+                                style: {
+                                    textAlign: "center",
+                                    fontSize: "30px",
+                                    fontWeight: 'semi-bold',
+                                    color: 'black',
+                                    transition: 'all .2s ease-out'
+
+                                },
+
+                                columns: [
+                                    {
+                                        Header: "Username",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
+                                        },
+                                        accessor: "username",
+
+                                    },
+                                    {
+                                        Header: "Food",
+                                        accessor: "name",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
+                                        }
+
+
+
+                                    },
+                                    {
+                                        Header: "Date",
+                                        accessor: "time",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
+                                        }
+                                    },
+
+                                ],
+
+
+
+                            },
+                        ]}
+                        defaultPageSize={10}
+
+                        style={{
+
+
+                            FontFace: "itim",
+                            height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
+                        }}
+                        className="-striped -highlight" /><br /></>
+
+
+
+
+                </div>
             </div>
-        </main>
+        </div>
     );
 
 }

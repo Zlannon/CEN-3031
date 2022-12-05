@@ -25,99 +25,124 @@ function FoodList() {
 
 
     return (
-        <main>
-            <div className='claimBox'>
-                {GetData()}
-                <><ReactTable
-                    data={database}
-                    columns={[
-                        {
-                            Header: "Food List",
-                            style: {
-                                textAlign: "center",
-                                fontSize: "30px",
-                                fontWeight: 'semi-bold',
-                                transition: 'all .2s ease-out'
-
-                            },
-                            columns: [
-                                {
-                                    Header: "id",
-                                    accessor: "id",
-                                    style: {
-                                        textAlign: "center",
-                                        fontSize: "15px",
-                                        transition: 'all .2s ease-out'
-
-                                    }
-
-
+        <div>
+            <div className="claimFood">
+                <div className='claimFoodBox'>
+                    {GetData()}
+                    <><ReactTable
+                        data={database}
+                        columns={[
+                            {
+                                Header: "Food List",
+                                style: {
+                                    textAlign: "center",
+                                    fontSize: "30px",
+                                    fontWeight: 'semi-bold',
+                                    color: 'black',
+                                    transition: 'all .2s ease-out'
 
                                 },
-                                {
-                                    Header: "Address",
-                                    accessor: "address",
-                                    style: {
-                                        textAlign: "center",
-                                        fontSize: "30px",
-                                        transition: 'all .2s ease-out',
-                                        fontFamily: 'lucida'
+                                Filter: ({ filter, onChange }) => (
+                                    <input
+                                        onChange={event => onChange(event.target.value)}
+                                        value={filter ? filter.value : ''}
+                                        style={{
+                                            width: '100%',
+                                            backgroundColor: 'grey',
+                                        }}
+                                    />
+                                ),
 
-                                        //backgroundColor: '#5CB766'
+                                columns: [
+                                    {
+                                        Header: "id",
+                                        accessor: "id",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
+                                        }
+
+
 
                                     },
-                                },
-                                {
-                                    Header: "Food",
-                                    accessor: "name",
-                                    style: {
-                                        textAlign: "center",
-                                        fontSize: "15px",
-                                        transition: 'all .2s ease-out'
+                                    {
+                                        Header: "Address",
+                                        accessor: "address",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out',
 
-                                    }
+                                            //backgroundColor: '#5CB766'
 
+                                        },
+                                    },
+                                    {
+                                        Header: "Food",
+                                        accessor: "name",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
 
-
-                                },
-                                {
-                                    Header: "category",
-                                    accessor: "category",
-                                    style: {
-                                        textAlign: "center",
-                                        fontSize: "15px",
-                                        transition: 'all .2s ease-out'
-
-                                    }
-                                },
-                                {
-                                    Header: "allergen",
-                                    accessor: "allergen",
-                                    style: {
-                                        textAlign: "center",
-                                        fontSize: "15px",
-                                        transition: 'all .2s ease-out'
-
-                                    }
-                                },
-                            ],
+                                        }
 
 
 
-                        },
-                    ]}
-                    defaultPageSize={10}
+                                    },
+                                    {
+                                        Header: "category",
+                                        accessor: "category",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
 
-                    style={{
+                                        },
+                                        filterable: true,
+
+                                    },
+                                    {
+                                        Header: "allergen",
+                                        accessor: "allergen",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
+                                        },
+                                        filterable: true,
+
+                                    },
+                                ],
 
 
-                        FontFace: "itim",
-                        height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
-                    }}
-                    className="-striped -highlight" /><br /></>
+
+                            },
+                        ]}
+                        defaultPageSize={10}
+
+                        style={{
+
+
+                            FontFace: "itim",
+                            height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
+                        }}
+                        className="-striped -highlight" /><br /></>
+
+
+
+
+                </div>
             </div>
-        </main>
-
+        </div>
     );
 
 
