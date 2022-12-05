@@ -1,7 +1,6 @@
 
 import { React, useState,} from "react";
 import Axios from "axios"
-import "./claimFood.css"
 
 
 function ClaimFood() {
@@ -49,23 +48,14 @@ function ClaimFood() {
     }
 
     return (
-        <div className="claimFood">
-            <div className='claimFoodBox'>
-                <div className='claimFoodHeader'>
-                    <h3>Claim Food</h3>
-                </div>
-
-                <div className='inputs'>
-                    <h3>Enter the ID of the food you wish to claim: </h3>
-                    <input className='ID' onChange={(event) => { setID(event.target.value) }} type="text" />
-
-                </div>
-                <button className='claimFoodSubmit' onClick={claim}>Claim</button>
+        <main>
+            <div className='claimBox'>
+                <h3>Claim Food</h3>
+                <h3>Enter the ID of the food you wish to claim: </h3>
+                <input className='inputBox' onChange={(event) => { setID(event.target.value) }} type="text" />
+                <button className='submit' onClick={claim}>Claim</button>
             </div>
-            <div>
-
-            </div>
-        </div>
+        </main>
     );
 
 

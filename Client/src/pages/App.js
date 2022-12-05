@@ -12,14 +12,9 @@ import ClaimFood from './claimFood'
 
 
 function App() {
-  
-
-  return (
-    <div className='App'>
-
+    let body = (
       <BrowserRouter>
       <Navbar/>
-
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/createAccount" element={<CreateAccount/>}/>
@@ -30,16 +25,22 @@ function App() {
           <Route path="/userClaims" element={<UserClaims/>}/>
           <Route path="/restaurantClaims" element={<RestaurantClaims/>}/>
           <Route path="/claimFood" element={<ClaimFood />} />
-
-
-
-
-
-
         </Routes>
       </BrowserRouter>
-    </div>
-  );
+    )
+
+    if (localStorage.getItem("darkmode") == "true"){
+      return (
+        <div id='App' className='dark'>
+          {body}
+        </div>
+      )
+    }
+    else {
+      return <div id='App'>
+        {body}
+      </div>
+    }
 }
 
 export default App;

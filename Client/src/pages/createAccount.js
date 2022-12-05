@@ -144,73 +144,81 @@ function CreateAccount() {
 
   //------------------------------
 
-    return(
-     
-        <div className="createAccount">
-      <div className='createAccountBox'>
-       
-        <div className='createAccountHeader'>
-          <h3>Create Account</h3>
-       
-     </div>
-        <div className='inputs'>
-        {err.username && <span className='err' style={{color: 'red'}}>{err.username}</span>}
+  return(
+    <main>
+      <div className="accountBox">
+        <h3>Create Account</h3>
+        {err.username && (
+          <span className="err" style={{ color: "red" }}>
+            {err.username}
+          </span>
+        )}
 
-          <input 
-             type="text" 
-             className='username' 
-             name = 'username' 
-             placeholder='Create Username'  
-             value={user} 
-             onChange={event=>passwordOnChange(event)}
-             onBlur={validateInput}
-          />
-          <br></br>
-          {error && <text style={{color: 'red'}}>{error}</text>}  
-          <input 
-            className='email' 
-            placeholder='Enter your Email'
-            value={message}
-            onChange={(event) => { handleChange(event); setEmail(event.target.value); }}
+        <input
+          type="text"
+          className="inputBox"
+          name="username"
+          placeholder="Create Username"
+          value={user}
+          onChange={(event) => passwordOnChange(event)}
+          onBlur={validateInput}
+        />
+        <br></br>
+        {error && <text style={{ color: "red" }}>{error}</text>}
+        <input
+          className="inputBox"
+          placeholder="Enter your Email"
+          value={message}
+          onChange={(event) => {
+            handleChange(event);
+            setEmail(event.target.value);
+          }}
+        />
 
-          />
-          
-          {err.password && <span className='err'  style={{color: 'red'}}>{err.password}</span>}
-          <input 
-            type={passwordType} 
-            onChange={handlePasswordChange} 
-            value={passwordInput} 
-            name="password" 
-            className="password" 
-            placeholder="Password" 
-          />         
+        {err.password && (
+          <span className="err" style={{ color: "red" }}>
+            {err.password}
+          </span>
+        )}
+        <input
+          type={passwordType}
+          onChange={handlePasswordChange}
+          value={passwordInput}
+          name="password"
+          className="inputBox"
+          placeholder="Password"
+        />
 
-        {err.confirmPassword && <span className='err' style={{color: 'red'}}>{err.confirmPassword}</span>}  
-        <input type={passwordType} 
-          name="confirmPassword"   
-          value={input.confirmPassword} 
-          onChange={OnInputChange} 
-          onBlur={validateInput} 
-          className="confirmPassword" 
+        {err.confirmPassword && (
+          <span className="err" style={{ color: "red" }}>
+            {err.confirmPassword}
+          </span>
+        )}
+        <input
+          type={passwordType}
+          name="confirmPassword"
+          value={input.confirmPassword}
+          onChange={OnInputChange}
+          onBlur={validateInput}
+          className="inputBox"
           placeholder="Confirm Password"
-        />         
-        
-        </div>
-        <div className='userType'>
-        <select name="userType" id="selectType"  >
-          <option value="selected" hidden>Please select an option</option>
+        />
+        <select name="userType" id="selectType">
+          <option value="selected" hidden>
+            Please select an option
+          </option>
           <option value="Customer">Customer</option>
           <option value="Restaurant">Restaurant</option>
         </select>
-       
-        <button className='submit' onClick={ addUser }>Submit</button>
-        </div>
-        <p>Already have an account? <Link to="/login">Login</Link></p>
+
+        <button className="submit" onClick={addUser}>
+          Submit
+        </button>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
       </div>
-      <div>
-    
-    </div>
-    </div>
+    </main>
   );
     
 }

@@ -2,7 +2,6 @@
 import { useState , React} from "react";
 import { Link } from "react-router-dom"
 import Axios from "axios"
-import "./login.css"
 
 function Login() {
     const [user, setUser] = useState("");
@@ -49,33 +48,46 @@ function Login() {
     }
 
     return (
-  <div className="createAccount">
-      <div className='createAccountBox'>
-        <div className='loginHeader'>
-                    <h3>Login</h3>
-     </div>
-     <select name="userType" id="selectType"  >
-          <option value="selected" hidden>Login as</option>
-          <option value="Customer">Customer</option>
-          <option value="Restaurant">Restaurant</option>
-          </select>
-        <div className='inputs'>
-                    <input className='username' type= "text" onChange={(event) => { setUser(event.target.value);}} id="username" placeholder='Enter Username'/>
-          <input type={passwordType} onChange={handlePasswordChange} value={passwordInput} id="password" name="password" className="password" placeholder="Enter Password" />         
-        </div>
-        <div className='userType'>
-                    <button className='login-form-submit' onClick={() => {
-          checkPass();
-        }}>Login</button>
-        </div>
-        <p>Don't have an account? <Link to="/createAccount">Sign up</Link></p>
-      </div>
-      <div>
-    
-    </div>
-    </div>
-      
-  );
+        <main>
+            <div className="accountBox">
+                <h3>Login</h3>
+                <select name="userType" className="inputBox" id="selectType">
+                    <option value="selected" hidden>Login as</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Restaurant">Restaurant</option>
+                </select>
+                <input
+                    className="inputBox"
+                    type="text"
+                    onChange={(event) => {
+                    setUser(event.target.value);
+                    }}
+                    id="username"
+                    placeholder="Enter Username"
+                />
+                <input
+                    type={passwordType}
+                    onChange={handlePasswordChange}
+                    value={passwordInput}
+                    id="password"
+                    name="password"
+                    className="inputBox"
+                    placeholder="Enter Password"
+                />
+                <button
+                    className="submit"
+                    onClick={() => {
+                        checkPass();
+                    }}
+                >
+                Login
+                </button>
+                <p>
+                Don't have an account? <Link to="/createAccount">Sign up</Link>
+                </p>
+            </div>
+        </main>
+    );
     
 }
 

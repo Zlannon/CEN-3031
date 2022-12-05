@@ -1,7 +1,6 @@
 
 import { React, useState } from "react";
 import Axios from "axios"
-import "./addFood.css"
 
 
 function AddFood() {
@@ -31,36 +30,43 @@ function AddFood() {
     }
 
     return (
-        <div className="addFood">
-            <div className='addFoodBox'>
-                <div className='addFoodHeader'>
-                    <h3>Add Food</h3>
-                </div>
+        <main>
+            <div className='accountBox'>
+                <h3>Add Food</h3>
+                <input 
+                    className='inputBox' 
+                    placeholder="Food Name"
+                    onChange={(event) => { setName(event.target.value) }} type="text" 
+                />
+                <input 
+                    className='inputBox' 
+                    placeholder="Restaurant Name"
+                    onChange={(event) => { setRestaurant(event.target.value) }} type="text" 
+                />
+                <input 
+                    className='inputBox' 
+                    placeholder="Address"
+                    onChange={(event) => { setAddress(event.target.value) }} type="text" 
+                />
+                <input 
+                    className='inputBox' 
+                    placeholder="Allergy"
+                    onChange={(event) => { setAllergen(event.target.value) }} type="text" 
+                />
 
-                <div className='inputs'>
-                    <h3>Food: </h3>
-                    <input className='food' onChange={(event) => { setName(event.target.value) }} type="text" />
-                    <h3>Restaurant: </h3>
-                    <input className='restaurant' onChange={(event) => { setRestaurant(event.target.value) }} type="text" />
-                    <h3>Address: </h3>
-                    <input className='address' onChange={(event) => { setAddress(event.target.value) }} type="text" />
-                    <h3>Allergy</h3>
-                    <input className='allergy' onChange={(event) => { setAllergen(event.target.value) }} type="text" />
-
-                </div>
-                <h3>Category: </h3>
-                <select name="userType" id="selectType"  >
+                <select name="userType" 
+                    id="selectType"  
+                    className="inputBox"
+                >
+                    <option value="Category" hidden>Category</option>
                     <option value="meat" >Non-vegetarian</option>
                     <option value="vegan">Vegan</option>
                     <option value="vegetarian">Vegetarian</option>
                 </select>
 
-                <button className='addFoodSubmit' onClick={addFood}>Add</button>
+                <button className='submit' onClick={addFood}>Add</button>
             </div>
-            <div>
-
-            </div>
-        </div>
+        </main>
     );
 
 
