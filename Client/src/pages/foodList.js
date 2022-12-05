@@ -35,11 +35,22 @@ function FoodList() {
                             Header: "Food List",
                             style: {
                                 textAlign: "center",
-                                fontSize: "30px",
+                                fontSize: "15px",
                                 fontWeight: 'semi-bold',
                                 transition: 'all .2s ease-out'
 
                             },
+                            Filter: ({filter, onChange}) => (
+                                <input
+                                    onChange={event => onChange(event.target.value)}
+                                    value={filter ? filter.value : ''}
+                                    style={{
+                                        width: '100%',
+                                            backgroundColor: 'grey',
+                                    }}
+                                    />
+                            ),
+                           
                             columns: [
                                 {
                                     Header: "id",
@@ -59,9 +70,8 @@ function FoodList() {
                                     accessor: "address",
                                     style: {
                                         textAlign: "center",
-                                        fontSize: "30px",
+                                        fontSize: "15px",
                                         transition: 'all .2s ease-out',
-                                        fontFamily: 'lucida'
 
                                         //backgroundColor: '#5CB766'
 
@@ -88,7 +98,9 @@ function FoodList() {
                                         fontSize: "15px",
                                         transition: 'all .2s ease-out'
 
-                                    }
+                                    },
+                                    filterable: true
+
                                 },
                                 {
                                     Header: "allergen",
@@ -98,7 +110,9 @@ function FoodList() {
                                         fontSize: "15px",
                                         transition: 'all .2s ease-out'
 
-                                    }
+                                    },
+                                    filterable: true,
+
                                 },
                             ],
 
@@ -110,7 +124,7 @@ function FoodList() {
 
                     style={{
 
-
+                        width: "700px",
                         FontFace: "itim",
                         height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
                     }}

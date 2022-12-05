@@ -110,7 +110,7 @@ function RestaurantClaims() {
                         
                         style={{
                             
-                            
+                            width: "700px",
                             FontFace: "itim",
                             height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
                         }}
