@@ -5,6 +5,7 @@ import "./home.css"
 
 const image = require("../images/Food.png")
 
+//Home page using image, logo and typewriter effect
 function Home() {
   
   return(

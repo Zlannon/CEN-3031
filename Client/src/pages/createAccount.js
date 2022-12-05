@@ -4,10 +4,13 @@ import { Link } from "react-router-dom"
 import "./createAccount.css"
 import Axios from "axios"
 
+
+// makes sure email is in a valid format 
 export function isValidEmail(email) {
   return /\S+@\S+\.\S+/.test(email);
 }
 
+// makes sure that the username doesn't have characters other than alphabets and numbers
 export function getValidUsername(username){
   const result = username.replace(/[^a-zA-Z0-9]/gi, '');
   return result;
@@ -26,6 +29,7 @@ function CreateAccount() {
         OnInputChange(evnt);
     }
 
+    //creates a new restaurant or a customer account based on their selected type and pops an error if the username or email is already used for some other account
     const addUser = () => {
 
       Axios.get("http://localhost:3001/check", {
@@ -55,8 +59,7 @@ function CreateAccount() {
       
   }
 
-    //Verification
-     //check email format
+  //Verification
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
 
@@ -75,7 +78,6 @@ function CreateAccount() {
  
   //Functions to make sure username, password and confirm password is inputted and password = confirmPassword
 
-  
   const [input, setInput] = useState({
     username: '',
     password: '',
@@ -97,6 +99,8 @@ function CreateAccount() {
     validateInput(e);
   }
  
+  // makes sure that the fields are inputted and pops an error if they aren't. 
+  // Also checks that the password and confirm password are the same.
   const validateInput = e => {
     let { name, value } = e.target;
     setErr(prev => {
@@ -144,6 +148,7 @@ function CreateAccount() {
 
   //------------------------------
 
+  
   return(
     <main>
       <div className="accountBox">

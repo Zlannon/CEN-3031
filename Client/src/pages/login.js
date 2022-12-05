@@ -3,6 +3,7 @@ import { useState , React} from "react";
 import { Link } from "react-router-dom"
 import Axios from "axios"
 
+//Login page
 function Login() {
     const [user, setUser] = useState("");
     const [passwordType] = useState("password");
@@ -12,6 +13,9 @@ function Login() {
         setPasswordInput(evnt.target.value);
     }
     
+    //checks if the login information is valid otherwise alerts an error. 
+    //Navigates to respective foodList or addFood pages based on whether the restaurant or user logged in
+    //Stores in localStorage the username of the customer or restaurant
     const checkPass = () => {
         Axios.get("http://localhost:3001/pass", {
             params: {
@@ -47,6 +51,8 @@ function Login() {
         });
     }
 
+    //Input fields include username, password and dropdown of Customer/Restaurant
+    //Sets user and password onChange and calls the function checkPass after they hit submit
     return (
         <main>
             <div className="accountBox">

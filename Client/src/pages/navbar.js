@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import "@fontsource/itim"
 import "./navbar.css"
 
+
 const logo = require('../images/logo.png')
 
+//Navigation bar
 const Navbar = () => {
+
+  //checks whether the logged in user is a restaurant or user through local storage
   const isAuthenticatedRestaurant = localStorage.getItem("isRestaurantAuthenticated");
   const isAuthenticatedCustomer = localStorage.getItem("isCustomerAuthenticated");
 
+  // signout takes the user back to login page
   function signout() {
     //localStorage.clear();
     localStorage.removeItem("isRestaurantAuthenticated")
@@ -17,7 +22,9 @@ const Navbar = () => {
 
   }
 
+
   function account() {
+    // if customer render a different navigation bar than if the user is a restaurant
     if (isAuthenticatedCustomer) {
       return <>
         <Link to="/foodList">Food List</Link>
@@ -51,6 +58,7 @@ const Navbar = () => {
     </>
   }
 
+  //Toggle the display between light and dark mode if the dark mode button on navigation bar is clicked
   function darkMode() {
     function onClick() {
       if (localStorage.getItem("darkmode") == "true") {

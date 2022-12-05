@@ -6,6 +6,7 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+//connect to the SQL database
 const db = mysql.createConnection({
     host: "logindb.cfnvy4jewi1o.us-east-2.rds.amazonaws.com",
     port: "3306",
@@ -15,6 +16,7 @@ const db = mysql.createConnection({
 });
 
 
+// create food table
 app.get("/create", (req, res) => {
     db.query("CREATE TABLE food (id varchar(255), address varchar(255), name varchar(255), category varchar(255), allergen varchar(255), restaurant varchar(255), creator varchar(255))", (err, result) => {
         if (err) {
@@ -25,6 +27,7 @@ app.get("/create", (req, res) => {
     });
 });
 
+// create claimR (Restaurant claims) table
 app.get("/create2", (req, res) => {
     db.query("CREATE TABLE claimR (username varchar(255), name varchar(255), time varchar(255), restaurant varchar(255))", (err, result) => {
         if (err) {
@@ -35,6 +38,7 @@ app.get("/create2", (req, res) => {
     });
 });
 
+// create claimU (user claims) table
 app.get("/create3", (req, res) => {
     db.query("CREATE TABLE claimU (address varchar(255), name varchar(255), time varchar(255), restaurant varchar(255), username varchar(255))", (err, result) => {
         if (err) {
@@ -45,6 +49,7 @@ app.get("/create3", (req, res) => {
     });
 });
 
+// queries to delete claimU, claimR and food tables
 app.get("/delete", (req, res) => {
     db.query("DROP TABLE claimU", (err, result) => {
         if (err) {
@@ -75,6 +80,7 @@ app.get("/delete3", (req, res) => {
     });
 })
 
+// delete food from the food table that has been claimed
 app.get("/delete4", (req, res) => {
     const id = req.query.id;
     db.query("DELETE FROM food WHERE id=" + mysql.escape(String(id)), (err, result) => {
@@ -86,6 +92,8 @@ app.get("/delete4", (req, res) => {
     });
 })
 
+
+// insert new food into food table
 app.get("/insert2", (req, res) => {
     const id = req.query.id;
     const name = req.query.name;
@@ -103,6 +111,7 @@ app.get("/insert2", (req, res) => {
     });
 });
 
+// insert new claims in claimR table
 app.get("/insert3", (req, res) => {
     const name = req.query.name;
     const restaurant = req.query.restaurant;
@@ -118,6 +127,7 @@ app.get("/insert3", (req, res) => {
     });
 });
 
+//insert new claims in claimU table
 app.get("/insert4", (req, res) => {
     const name = req.query.name;
     const restaurant = req.query.restaurant;
@@ -144,6 +154,7 @@ app.get("/count", (req, res) => {
     });
 });
 
+// search queries to search  from different tables
 app.get("/search", (req, res) => {
     db.query("SELECT * FROM food", (err, result) => {
         if (err) {
@@ -187,6 +198,7 @@ app.get("/search4", (req, res) => {
     });
 });
 
+// insert into Rlogin and Clogin tables after they create account
 app.get("/insert", (req, res) => {
     const user = req.query.user;
     const email = req.query.email;
@@ -211,6 +223,7 @@ app.get("/insert", (req, res) => {
     }
 });
 
+// check authentication for login
 app.get("/pass", (req, res) => {
     const user = req.query.user;
     const type = req.query.type;
@@ -233,6 +246,7 @@ app.get("/pass", (req, res) => {
     }
 });
 
+// check for duplicated emails or username entered in create account table
 app.get("/check", (req, res) => {
     const user = req.query.user;
     const email = req.query.email;
@@ -255,6 +269,7 @@ app.get("/check", (req, res) => {
         });
     }
 });
+
 
 app.get("/list", (req, res) => {
     const alrg = req.query.alrg;

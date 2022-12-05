@@ -11,6 +11,7 @@ import RestaurantClaims from './restaurantClaims'
 import ClaimFood from './claimFood'
 
 
+//For routing the pages in the navigation bars
 function App() {
     let body = (
       <BrowserRouter>
@@ -29,6 +30,7 @@ function App() {
       </BrowserRouter>
     )
 
+  //check if the user has enabled darkmode or not and adjust the body of the app respectively
     if (localStorage.getItem("darkmode") == "true"){
       return (
         <div id='App' className='dark'>

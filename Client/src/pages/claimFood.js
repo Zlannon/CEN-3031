@@ -7,8 +7,14 @@ function ClaimFood() {
 
     const [ID, setID] = useState("");
     const date = new Date();
+    // get the current date and time and store it
     const time = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear() + " " + date.getHours() % 12 + ":" + date.getMinutes();
 
+
+    
+    /*Stores username of the user that claimed the food, name of the food, the time it was claimed and the 
+    restaurant that the food belongs to and inserts it into the Restaurant claims table so that the restaurant can see the 
+    see which customer is picking up which food on their claims page*/
     const claim = () => {
         Axios.get("http://localhost:3001/search4", {
             params: {
@@ -24,6 +30,10 @@ function ClaimFood() {
                 }
             })
         })
+
+    /*Stores  name of the food, the time it was claimed, address and name of the restaurant that the food belongs to and 
+    inserts it into the User claims table so that the user can see their current and previous claims on their
+    'Your claims' page*/
         Axios.get("http://localhost:3001/search4", {
             params: {
                 id: ID
@@ -47,6 +57,7 @@ function ClaimFood() {
         })
     }
 
+    // HTML of Claim Food page. The user enters the id of the Food they want to claim and on submit calls the claims function
     return (
         <main>
             <div className='claimBox'>

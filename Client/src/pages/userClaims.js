@@ -4,12 +4,13 @@ import ReactTable from "react-table-6";
 import "react-table-6/react-table.css"
 
 
-function RestaurantClaims() {
+function UserClaims() {
     
     const [database, setDatabase] = useState([]);
     
 
-    const data = "";
+
+    //get the claims that the logged in user has placed and store the JSON data in database
       function GetData(){
         useEffect(() => {
             (async () => {
@@ -34,6 +35,7 @@ function RestaurantClaims() {
 
    
 
+      // display the claims in table format through react-table-6
     return (
         <main>
             <div className='claimBox'>
@@ -128,17 +130,8 @@ function RestaurantClaims() {
 
     
   
-      
-     /*  <>
-       <h1>Restaurant Claims page </h1>
-       <p>Check which user is picking up food</p>
-      
-
-       </>
-    */
-  
     
 
 
-export default RestaurantClaims;
+export default UserClaims;
 

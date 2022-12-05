@@ -8,3 +8,18 @@ h3{
 }
 
 
+#selectType{
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  border-width: 1;
+  margin-bottom: 20px;
+  background-color: #f8efefce;
+  color: gray;
+}
+
+
+.dark #selectType {
+  background-color: #303030;
+  color: gray;
+}

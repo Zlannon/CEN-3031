@@ -7,7 +7,7 @@ function FoodList() {
 
     const [database, setDatabase] = useState([]);
 
-    const data = "";
+    //gets the food table and stores the JSON format in database
     function GetData() {
         useEffect(() => {
             (async () => {
@@ -24,6 +24,8 @@ function FoodList() {
     }
 
 
+    // renders a table with the food data using react-table-6. 
+    // Has filters in the category and allergy columns
     return (
         <main>
             <div className='claimBox'>
