@@ -1,161 +1,151 @@
-import { React, useState, useEffect} from "react";
-import "./restaurantClaims.css"
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import ReactTable from "react-table-6";
-import "react-table-6/react-table.css"
+import "./restaurantClaims.css"
 
+function FoodList() {
 
-function RestaurantClaims() {
-    
     const [database, setDatabase] = useState([]);
-    
 
-    function GetData(){
+    const data = "";
+    function GetData() {
         useEffect(() => {
             (async () => {
                 try {
-                    await axios.get("http://localhost:3001/userlist").then((response) => {
-                      setDatabase(JSON.parse(JSON.stringify((response.data))))
-                    
-    
+                    await axios.get("http://localhost:3001/search").then((response) => {
+                        setDatabase(JSON.parse(JSON.stringify((response.data))))
                     })
-                  }
-                  catch (e) {
+                }
+                catch (e) {
                     console.log(e)
-                  }
+                }
             })();
-          }, []);
-      }
-     
+        }, []);
+    }
 
-   
 
     return (
-            
-         <div>
+        <div>
             <div className="claimFood">
                 <div className='claimFoodBox'>
                     {GetData()}
-                            <><ReactTable
-                            data={database}
-                            columns={[
-                                {
-                                    Header: "Food List",
-                                    style: {
-                                        textAlign: "center",
-                                        fontSize: "30px",
-                                        fontWeight: 'semi-bold',
-                                        color: 'black',
-                                        transition: 'all .2s ease-out'
+                    <><ReactTable
+                        data={database}
+                        columns={[
+                            {
+                                Header: "Food List",
+                                style: {
+                                    textAlign: "center",
+                                    fontSize: "30px",
+                                    fontWeight: 'semi-bold',
+                                    color: 'black',
+                                    transition: 'all .2s ease-out'
+
+                                },
+                                Filter: ({filter, onChange}) => (
+                                    <input
+                                        onChange={event => onChange(event.target.value)}
+                                        value={filter ? filter.value : ''}
+                                        style={{
+                                            width: '100%',
+                                                backgroundColor: 'grey',
+                                        }}
+                                        />
+                                ),
+                               
+                                columns: [
+                                    {
+                                        Header: "id",
+                                        accessor: "id",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
+                                        }
+
+
 
                                     },
-                                    Filter: ({filter, onChange}) => (
-                                        <input
-                                            onChange={event => onChange(event.target.value)}
-                                            value={filter ? filter.value : ''}
-                                            style={{
-                                                width: '100%',
-                                                    backgroundColor: 'grey',
-                                            }}
-                                            />
-                                    ),
-                                   
-                                    columns: [
-                                        {
-                                            Header: "Restaurant",
-                                            style: {
-                                                textAlign: "center",
-                                                fontSize: "15px",
-                                                color: 'black',
-                                                transition: 'all .2s ease-out'
+                                    {
+                                        Header: "Address",
+                                        accessor: "address",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out',
 
-                                            },
-                                            accessor: "username",
-                                           
-                                           
+                                            //backgroundColor: '#5CB766'
+
                                         },
-                                        {
-                                            Header: "Food",
-                                            accessor: "email",
-                                            style: {
-                                                textAlign: "center",
-                                                fontSize: "15px",
-                                                color: 'black',
-                                                transition: 'all .2s ease-out'
+                                    },
+                                    {
+                                        Header: "Food",
+                                        accessor: "name",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
 
-                                            }
-                                    
+                                        }
 
-                                            
+
+
+                                    },
+                                    {
+                                        Header: "category",
+                                        accessor: "category",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
                                         },
-                                        {
-                                            Header: "Allergy",
-                                            accessor: "email",
-                                            style: {
-                                                textAlign: "center",
-                                                fontSize: "15px",
-                                                color: 'black',
-                                                transition: 'all .2s ease-out'
+                                        filterable: true,
 
-                                            },
-                                            filterable: true,
-                                            
+                                    },
+                                    {
+                                        Header: "allergen",
+                                        accessor: "allergen",
+                                        style: {
+                                            textAlign: "center",
+                                            fontSize: "15px",
+                                            color: 'black',
+                                            transition: 'all .2s ease-out'
+
                                         },
-                                        {
-                                            Header: "Category",
-                                            accessor: "pass",
-                                            style: {
-                                                textAlign: "center",
-                                                fontSize: "15px",
-                                                color: 'black',
-                                                transition: 'all .2s ease-out'
+                                        filterable: true,
 
-                                            },
-                                            filterable: true,
+                                    },
+                                ],
 
-                                    
-                                        },
-                                        
-                                        
-                                    ],
-                                   
-                            
-                                    
-                                },
-                            ]}
-                            defaultPageSize={10}
-                            
-                            style={{
-                                
-                              
-                                FontFace: "itim",
-                                height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
-                            }}
-                            className="-striped -highlight" /><br /></>
-                    
-                        
 
-                    
+
+                            },
+                        ]}
+                        defaultPageSize={10}
+
+                        style={{
+
+
+                            FontFace: "itim",
+                            height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
+                        }}
+                        className="-striped -highlight" /><br /></>
+
+
+
+
                 </div>
             </div>
         </div>
-      );
-        
-    }
-
-    
-  
-      
-     /*  <>
-       <h1>Restaurant Claims page </h1>
-       <p>Check which user is picking up food</p>
-      
-
-       </>
-    */
-  
-    
+    );
 
 
-export default RestaurantClaims;
+}
 
+export default FoodList;
