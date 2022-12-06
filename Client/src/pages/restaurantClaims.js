@@ -5,12 +5,14 @@ import ReactTable from "react-table-6";
 import "react-table-6/react-table.css"
 
 
+//Claims page for restaurant to see which customer has claimed food
+
 function RestaurantClaims() {
 
     const [database, setDatabase] = useState([]);
 
-    const data = "";
 
+    //get all the claims that a user has put for the restaurant that's logged in and store that JSON data in database
     function GetData() {
         useEffect(() => {
             (async () => {
@@ -32,104 +34,68 @@ function RestaurantClaims() {
         }, []);
     }
 
+
+    // display database in table format using react-table-6
     return (
-
-        <div>
-            <div className="claimFood">
-                <div className='claimFoodBox'>
-                    {GetData()}
-                    <><ReactTable
-                        data={database}
-                        columns={[
-                            {
-                                Header: "User Claims",
-                                style: {
-                                    textAlign: "center",
-                                    fontSize: "30px",
-                                    fontWeight: 'semi-bold',
-                                    color: 'black',
-                                    transition: 'all .2s ease-out'
-
+        <main>
+            <div className='claimBox'>
+                {GetData()}
+                <ReactTable
+                    data={database}
+                    columns={[
+                        {
+                            Header: "User Claims",
+                            style: {
+                                textAlign: "center",
+                                fontSize: "30px",
+                                fontWeight: 'semi-bold',
+                                transition: 'all .2s ease-out'
+                            },
+                            columns: [
+                                {
+                                    Header: "Username",
+                                    accessor: "username",
+                                    style: {
+                                        textAlign: "center",
+                                        fontSize: "15px",
+                                        transition: 'all .2s ease-out',
+                                        fontFamily: 'lucida'
+                                    },
+                                },
+                                {
+                                    Header: "Food",
+                                    accessor: "name",
+                                    style: {
+                                        textAlign: "center",
+                                        fontSize: "15px",
+                                        transition: 'all .2s ease-out'
+                                    }
+                                },
+                                {
+                                    Header: "Date",
+                                    accessor: "time",
+                                    style: {
+                                        textAlign: "center",
+                                        fontSize: "15px",
+                                        transition: 'all .2s ease-out'
+                                    }
                                 },
 
-                                columns: [
-                                    {
-                                        Header: "Username",
-                                        style: {
-                                            textAlign: "center",
-                                            fontSize: "15px",
-                                            color: 'black',
-                                            transition: 'all .2s ease-out'
-
-                                        },
-                                        accessor: "username",
-
-                                    },
-                                    {
-                                        Header: "Food",
-                                        accessor: "name",
-                                        style: {
-                                            textAlign: "center",
-                                            fontSize: "15px",
-                                            color: 'black',
-                                            transition: 'all .2s ease-out'
-
-                                        }
-
-
-
-                                    },
-                                    {
-                                        Header: "Date",
-                                        accessor: "time",
-                                        style: {
-                                            textAlign: "center",
-                                            fontSize: "15px",
-                                            color: 'black',
-                                            transition: 'all .2s ease-out'
-
-                                        }
-                                    },
-
-                                ],
-
-
-
-                            },
-                        ]}
-                        defaultPageSize={10}
-
-                        style={{
-
-
-                            FontFace: "itim",
-                            height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
-                        }}
-                        className="-striped -highlight" /><br /></>
-
-
-
-
-                </div>
+                            ]
+                        },
+                    ]}
+                    defaultPageSize={10}
+                    style={{
+                        width: "700px",
+                        FontFace: "itim",
+                        height: "600px" // This will force the table body to overflow and scroll, since there is not enough room
+                    }}
+                    className="-striped -highlight"
+                /><br />
             </div>
-        </div>
+        </main>
     );
 
 }
 
-
-
-
-/*  <>
-  <h1>Restaurant Claims page </h1>
-  <p>Check which user is picking up food</p>
- 
-
-  </>
-*/
-
-
-
-
 export default RestaurantClaims;
-

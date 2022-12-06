@@ -1,52 +1,64 @@
-
-import { useState , React} from "react";
+import { useState, React } from "react";
 import { Link } from "react-router-dom"
 import Axios from "axios"
 
+
+export function isValidUser(user) {
+    return /[a-zA-Z0-9!#$%^&*()_]+/.test(user);
+}
+
+//Login page
 function Login() {
     const [user, setUser] = useState("");
     const [passwordType] = useState("password");
     const [passwordInput, setPasswordInput] = useState("");
-  
-    const handlePasswordChange =(evnt)=>{
+
+    const handlePasswordChange = (evnt) => {
         setPasswordInput(evnt.target.value);
     }
-    
+
+    //checks if the login information is valid otherwise alerts an error. 
+    //Navigates to respective foodList or addFood pages based on whether the restaurant or user logged in
+    //Stores in localStorage the username of the customer or restaurant
     const checkPass = () => {
-        Axios.get("http://localhost:3001/pass", {
-            params: {
-                user: user,
-                type: document.getElementById("selectType").value,
-            },
-        }).then((response) => {
-            if (document.getElementById("selectType").value === "Customer") {
-                if (response.data[0] && passwordInput === response.data[0].pass) {
-                    alert("Customer Authenticated");
-                    localStorage.setItem("username", user);
-                    localStorage.setItem("isCustomerAuthenticated", "true");
-                    window.location.reload(false);
-                    window.location.pathname ='/foodList'
+        if (isValidUser(user)) {
+            Axios.get("http://localhost:3001/pass", {
+                params: {
+                    user: user,
+                    type: document.getElementById("selectType").value,
+                },
+            }).then((response) => {
+                if (document.getElementById("selectType").value === "Customer") {
+                    if (response.data[0] && passwordInput === response.data[0].pass) {
+                        alert("Customer Authenticated");
+                        localStorage.setItem("username", user);
+                        localStorage.setItem("isCustomerAuthenticated", "true");
+                        window.location.reload(false);
+                        window.location.pathname = '/foodList'
 
 
+                    } else {
+                        alert("failed");
+                    }
                 } else {
-                    alert("failed");
-                }
-            } else {
-                if (response.data[0] && passwordInput === response.data[0].pass) {
-                    alert("Restaurant Authenticated");
-                    localStorage.setItem("username", user);
-                    localStorage.setItem("isRestaurantAuthenticated", "true");
-                    window.location.reload(false);
-                    window.location.pathname ='/addFood'
-                    
+                    if (response.data[0] && passwordInput === response.data[0].pass) {
+                        alert("Restaurant Authenticated");
+                        localStorage.setItem("username", user);
+                        localStorage.setItem("isRestaurantAuthenticated", "true");
+                        window.location.reload(false);
+                        window.location.pathname = '/addFood'
 
-                } else {
-                    alert("failed");
+
+                    } else {
+                        alert("failed");
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
+    //Input fields include username, password and dropdown of Customer/Restaurant
+    //Sets user and password onChange and calls the function checkPass after they hit submit
     return (
         <main>
             <div className="accountBox">
@@ -60,7 +72,7 @@ function Login() {
                     className="inputBox"
                     type="text"
                     onChange={(event) => {
-                    setUser(event.target.value);
+                        setUser(event.target.value);
                     }}
                     id="username"
                     placeholder="Enter Username"
@@ -80,15 +92,15 @@ function Login() {
                         checkPass();
                     }}
                 >
-                Login
+                    Login
                 </button>
                 <p>
-                Don't have an account? <Link to="/createAccount">Sign up</Link>
+                    Don't have an account? <Link to="/createAccount">Sign up</Link>
                 </p>
             </div>
         </main>
     );
-    
+
 }
 
 export default Login;
